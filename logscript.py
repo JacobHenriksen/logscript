@@ -33,8 +33,9 @@ def count(fileName):
 
     try:
         deviceCount = len(findDevices(fileName))
-    except:
-        return
+    except FileNotFoundError:
+        print(f'Logfile {fileName} not found.')
+        return 
     else:
         print(f'\nNumber of unique devices in \'{fileName}\':')
         print(f'{deviceCount}\n')
